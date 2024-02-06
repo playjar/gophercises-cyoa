@@ -1,5 +1,7 @@
 package model
 
+type Story map[string]Arc
+
 type Arc struct {
 	Name string
 	Title string `json:"title"`

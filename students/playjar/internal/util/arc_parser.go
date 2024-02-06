@@ -16,14 +16,14 @@ func ParseJSONToArcs(filepath string) (arcs []model.Arc, err error) {
 		return nil, err
 	}
 	
-	var arcNameToArc map[string]model.Arc
-	err = json.Unmarshal(jsonBytes, &arcNameToArc)
+	var story model.Story
+	err = json.Unmarshal(jsonBytes, &story)
 	if err != nil {
 		fmt.Printf("unmarshal arc json bytes error: %v", err)
 		return nil, err
 	}
 
-	for arcName, arc := range(arcNameToArc) {
+	for arcName, arc := range(story) {
 		arc.Name = arcName
 		arcs = append(arcs, arc)
 	}
