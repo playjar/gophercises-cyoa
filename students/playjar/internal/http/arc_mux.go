@@ -15,7 +15,7 @@ func GetArcHandlerMux(arcs []model.Arc, arcTemplate *template.Template) (mux *ne
 		if arc.Name != "intro" {
 			path += arc.Name
 		}
-		mux.Handle(path, ArcHandler{CurrentArc: arc, Template: arcTemplate})
+		mux.Handle(path, NewArcHandler(arc, arcTemplate))
 	}
 
 	return mux
